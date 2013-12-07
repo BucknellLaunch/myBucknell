@@ -1,0 +1,23 @@
+body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #ff7f00;
+}
+.form-pop {
+  min-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-pop .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-pop .form-control:focus {
+  z-index: 2;
+}
