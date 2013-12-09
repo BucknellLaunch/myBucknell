@@ -8,12 +8,22 @@ myBucknell Popup
 <link href="popup.css" rel="stylesheet">
 </head>
 <body screen_capture_injected="true">
+<button type="button" class="btn btn-default btn-xs" id="setting">
+<span class="glyphicon glyphicon-wrench"></span></button>
 <div class="container">
-     <form class="form-pop" role="form">
+    <form class="form-pop" role="form" defaultbutton="search" defaultfocus="search">
 	<button class="btn btn-lg btn-primary btn-block" id="myBucknell">myBucknell</button>
 	<button class="btn btn-lg btn-primary btn-block" id="library">Library</button>
 	<button class="btn btn-lg btn-primary btn-block" id="moodle">Moodle</button>
 	<button class="btn btn-lg btn-primary btn-block" id="innetwork">InNetwork</button>
+	<div class="input-group">
+	<input type="text" placeholder="Search" id="searchtext" class="form-control">
+	<span class="input-group-btn">
+	<button class="btn btn-lg btn-primary btn-block" id="search" type="sumbit">Search</button>
+    <!-- Button and dropdown menu -->
+  </span>
+</div>
+	
 	</form>
 	</div>
 </body>

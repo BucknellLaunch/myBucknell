@@ -33,3 +33,30 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.form-advanced {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-advanced .form-advanced-heading,
+
+.form-advanced .form-control {
+  position: relative;
+  font-size: 20px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-advanced .form-control:focus {
+  z-index: 1;
+}
+.form-advanced input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  height:34	;
+}
+

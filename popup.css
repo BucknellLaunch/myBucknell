@@ -9,15 +9,29 @@ body {
   margin: 0 auto;
 }
 
-.form-pop .form-control {
-  position: relative;
-  font-size: 16px;
+
+.form-pop .input-group {
+  font-size: 20px;
   height: auto;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  width: auto;
+  padding-top: 5px;
 }
-.form-pop .form-control:focus {
-  z-index: 2;
+.form-pop .input-group  input[type="text"] {
+  margin-bottom: -1px;
+  height: 45px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#setting {
+    margin-top: 2px;
+    margin-right: 2px;
+    position: absolute;
+	height: 18px;
+	width: 18px;
+    top: 0;
+    right: 0;
+	background: none;
+	border:none;
+    box-shadow:none;
 }

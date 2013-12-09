@@ -7,16 +7,67 @@ myBucknell Account Setting
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="option.css" rel="stylesheet">
 </head>
-<body screen_capture_injected="true">
+<body screen_capture_injected="true" style="overflow:hidden" scrolling="no">
 <div class="container">
-      <form class="form-signin" role="form">
+      <form class="form-signin" role="form	">
         <h2 class="form-signin-heading">Please Set myBucknell Account</h2>
-        <input type="text" class="form-control" placeholder="Bucknell UserName" required="" autofocus="" id="username">
-        <input type="password" class="form-control" placeholder="Password" required="" id="pswrd">
-        <button class="btn btn-lg btn-primary btn-block" id="save" type="submit">Save</button>
+        <input type="text" class="form-control" placeholder="Bucknell UserName" required=true autofocus=true id="username">
+        <input type="password" class="form-control" placeholder="Password" required=true id="pswrd">
+		<div class="alert alert-warning alert-dismissable" style="display: none;" id="warning">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Warning!</strong> Cannot recognize the UserName!
+		</div>
+        <button class="btn btn-lg btn-primary btn-block" id="save">Save</button>
 		<button class="btn btn-danger btn-block" id="clear">Clear</button>
       </form>
+</div>
+<div class="container">
+	<form class="form-advanced" role="form">
+      <div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+				Advanced Settings
+				</a>
+			</h4>
+			</div>	
+			<div id="collapseOne" class="panel-collapse collapse">
+			<button class="btn btn-lg btn-primary btn-block">Coming Soon</button>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+				Statistics
+				</a>
+			</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+			<div class="panel-body">
+			<table class="table">
+			<tr>
+			<th>Name</th>
+			<th>Count</th>
+			</tr>
+			<tr><td>myBucknell Auto Login</td>
+			<td><label id="logincount">0</label></td></tr>
+			<tr><td>myBucknell Link Hit</td>
+			<td><label id="mybucknellcount">0</label></td></tr>
+			<tr><td>Library Link Hit</td>
+			<td><label id="librarycount">0</label></td></tr>
+			<tr><td>Moodle Link Hit</td>
+			<td><label id="moodlecount">0</label></td></tr>
+			<tr><td>InNetwork Link Hit</td>
+			<td><label id="innetworkcount">0</label></td></tr>
+			</table>
+      </div>
+    </div>
+  </div>
 	</div>
+	</form>
+</div>
 </body>
 <!-- Scripts -->
                 <script src="js/jquery-2.0.3.min.js"></script>
