@@ -1,45 +1,45 @@
-document.getElementById("myBucknell").addEventListener('click', function() {
-    chrome.tabs.create({url: "https://portal-prd.bucknell.edu/sso"});
-	localStorage["mybucknellcount"]++;
-});
-document.getElementById("library").addEventListener('click', function() {
-    chrome.tabs.create({url: "http://library.bucknell.edu/"});
-	localStorage["librarycount"]++;
-});
-document.getElementById("moodle").addEventListener('click', function() {
-    chrome.tabs.create({url: "http://moodle.bucknell.edu/"});
-	localStorage["moodlecount"]++;
-});
-document.getElementById("innetwork").addEventListener('click', function() {
-    chrome.tabs.create({url: "https://getinvolved.bucknell.edu/"});
-	localStorage["innetworkcount"]++;
-});
+$(function(){	
+	$("#myBucknell").click(function() {
+	    chrome.tabs.create({url: "https://portal-prd.bucknell.edu/sso"});
+		localStorage["mybucknellcount"]++;
+	});
+	$("#library").click(function() {
+	    chrome.tabs.create({url: "http://library.bucknell.edu/"});
+		localStorage["librarycount"]++;
+	});
+	$("#moodle").click(function() {
+	    chrome.tabs.create({url: "http://moodle.bucknell.edu/"});
+		localStorage["moodlecount"]++;
+	});
+	$("#innetwork").click(function() {
+	    chrome.tabs.create({url: "https://getinvolved.bucknell.edu/"});
+		localStorage["innetworkcount"]++;
+	});
 
-document.getElementById("search").addEventListener('click', function() {
-	var search = document.getElementById("searchtext").value.replace(" ", "+");
+	$("#search").click(function() {
+		var search = $("#searchtext").val().replace(" ", "+");
 	
-	var link = "https://google.bucknell.edu/search?q=" + search +"&x=-978&y=-107&client=default_frontend&output=xml_no_dtd&proxystylesheet=default_frontend&sort=date%3AD%3AL%3Ad1&entqr=3&entsp=a&oe=UTF-8&ie=UTF-8&ud=1";
-    chrome.tabs.create({url: link});
-});
+		var link = "https://google.bucknell.edu/search?q=" 
+			 + search 
+			 +"&x=-978&y=-107&client=default_frontend&output=xml_no_dtd&proxystylesheet=default_frontend&sort=date%3AD%3AL%3Ad1&entqr=3&entsp=a&oe=UTF-8&ie=UTF-8&ud=1";
+	    	chrome.tabs.create({url: link});
+	});
 
-document.getElementById("setting").addEventListener('click', function() {
-	chrome.tabs.create({url: "options.html"});
-});
+	$("#setting").click(function() {
+		chrome.tabs.create({url: "options.html"});
+	});
 
-$(document).ready(function(){
-    $('#searchtext').keypress(function(e){
-      if(e.keyCode==13)
-      $('#search').click();
-    });
+        $('#searchtext').keypress(function(e){
+      	        if(e.keyCode==13)
+                $('#search').click();
+        });
 });
 
 
 
 // suppress the default one I don't why it will fire the first button
-$(document).keypress(
-    function(event){
+$(document).keypress(function(event){
      if (event.which == '13') {
         event.preventDefault();
-      }
-
+     }
 });

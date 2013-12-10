@@ -1,13 +1,21 @@
 <html>
 <head>
+
 <title>
-myBucknell Popup
+myBucknell Auto Login Helper
 </title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="popup.css" rel="stylesheet">
 </head>
-<body screen_capture_injected="true">
+
+<!-- Scripts -->
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="popup.js"></script>
+
+<body>
 <button type="button" class="btn btn-default btn-xs" id="setting">
 <span class="glyphicon glyphicon-wrench"></span></button>
 <div class="container">
@@ -16,30 +24,17 @@ myBucknell Popup
 	<button class="btn btn-lg btn-primary btn-block" id="library">Library</button>
 	<button class="btn btn-lg btn-primary btn-block" id="moodle">Moodle</button>
 	<button class="btn btn-lg btn-primary btn-block" id="innetwork">InNetwork</button>
+
 	<div class="input-group">
 	<input type="text" placeholder="Search" id="searchtext" class="form-control">
 	<span class="input-group-btn">
 	<button class="btn btn-lg btn-primary btn-block" id="search" type="sumbit">Search</button>
-    <!-- Button and dropdown menu -->
-  </span>
-</div>
-	
-	</form>
+  	</span>
 	</div>
+
+    	<!-- Button and dropdown menu -->
+	
+    </form>
+</div>
 </body>
-<!-- Scripts -->
-                <script src="js/jquery-2.0.3.min.js"></script>
-                <script src="js/bootstrap.min.js"></script>
-				<script src="popup.js"></script>
-	<iframe style="position: absolute; width: 1px; height: 1px; top: 0px; left: 0px; visibility: hidden;">
-	<html>
-	<head>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
-	</script>
-	<script type="text/javascript">var ga = document.createElement("script"); ga.type = "text/javascript"; ga.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s); </script><script type="text/javascript">parent.spsupport.api.onJqLoad(1);</script>
-	</head>
-	<body>
-	</body>
-	</html>
-	</iframe>
 </html>

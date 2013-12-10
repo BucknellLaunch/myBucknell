@@ -21,7 +21,6 @@
 	"default_icon": "Bucknell_16x16.png",
 	"default_popup": "popup.html"
   },
-  "short_name": "myBucknell",
   "options_page": "options.html",
   "manifest_version": 2
 }

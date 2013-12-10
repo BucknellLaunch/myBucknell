@@ -1,14 +1,15 @@
-// Copyright (c) 2013 Kuree
+// Copyright (c) 2013 Kuree. Modified by Li Li
 
 
 chrome.extension.onMessage.addListener(function(request, sender, sendMessage) {
     if (request.method == "getLocalStorage"){
-      sendMessage({data: localStorage[request.key]});}
-	 else if(request.method == "setLocalStorage"){
-	 localStorage[request.key] = request.value;
-	  }
-    else	
-      sendMessage({}); // snub them.
+	sendMessage({data: localStorage[request.key]});
+    }
+    else if(request.method == "setLocalStorage"){
+	localStorage[request.key] = request.value;
+    }
+    else
+    sendMessage({}); // snub them.
 });
 
 // Check whether new version is installed
@@ -36,6 +37,4 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.logincount = 0;
 	};
-	
-    
 });
