@@ -33,13 +33,15 @@ $(function(){
       	        if(e.keyCode==13)
                 $('#search').click();
         });
+
+	// suppress the default one I don't why it will fire the first button
+	$(document).keypress(function(event){
+	     if (event.which == '13') {
+		event.preventDefault();
+	     }
+	});
 });
 
 
 
-// suppress the default one I don't why it will fire the first button
-$(document).keypress(function(event){
-     if (event.which == '13') {
-        event.preventDefault();
-     }
-});
+
