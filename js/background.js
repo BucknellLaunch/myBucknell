@@ -10,8 +10,10 @@ function deleteCookie(url,name,store){
 };
 
 function resetCookie(cookie){
-	// get the oringinal cookie.
-	var expirationDate = new Date("Octobor 13, 2014, 11:23:00").getTime();
+	// get next year's date
+	var curDate = new Date();
+	curDate.setFullYear(curDate.getFullYear() + 1);
+	var expirationDate = curDate.getTime();
 	newCookie = new Object();
 	newCookie.url = 'https://cas.bucknell.edu/cas/login';
 	newCookie.name = cookie.name;
@@ -32,7 +34,7 @@ function resetCookie(cookie){
 
 chrome.cookies.onChanged.addListener(function(changeInfo){
 	var cookie = changeInfo.cookie;
-	if (cookie.name == 'CASTGC'){
+	if (cookie.name == 'CASTGC'){	
 		// if the cookie is a session cookie and it is newly created, make it a non-session cookie.
 		if (cookie.session && !changeInfo.removed){
 			resetCookie(cookie);
