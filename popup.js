@@ -15,6 +15,7 @@ $(function(){
 			}
 			else{
 				showButtons();
+				showBmailUnread();
 			}
 		});
 	}
@@ -27,6 +28,11 @@ $(function(){
 
 	function showButtons(){
 		$("div#sign-in").addClass("hide");
+
+		$("#bmail").click(function() {
+			chrome.tabs.create({url: "http://mail.bucknell.edu"});
+			localStorage["bmailcount"]++;
+		});
 
 		$("#myBucknell").click(function() {
 			chrome.tabs.create({url: "http://my.bucknell.edu"});
@@ -70,6 +76,24 @@ $(function(){
 				event.preventDefault();
 			}
 		});
+	};
+
+	function showBmailUnread(){
+		$.ajax({
+			url: "https://mail.google.com/mail/feed/atom",
+			dataType: "xml",
+			error: showError,
+			//if we need to pass user name and password for authentication, we can add username and password filed. But we are assuming that the user has the cookies already.
+			success: showUnread
+		});
+	};
+
+	function showUnread(data, status, jqXHR){
+		console.log(data);
+	};
+
+	function showError(){
+		console.log('Ajax unsuccessful.');
 	};
 
 	function removeCookie(){

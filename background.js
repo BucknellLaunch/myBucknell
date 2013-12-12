@@ -46,6 +46,10 @@ chrome.runtime.onInstalled.addListener(function(details){
   if(details.reason == "install"){
 		chrome.tabs.create({url: "options.html"});
   }
+	if(!localStorage.bmailcount)
+	{
+		localStorage.bmailcount = 0;
+	};
 	if(!localStorage.mybucknellcount)
 	{
 		localStorage.mybucknellcount = 0;
