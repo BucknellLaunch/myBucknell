@@ -1,7 +1,7 @@
 // Copyright (c) 2013 Kuree. Modified by Li Li
 
 function deleteCookie(url,name,store){
-    alert("Delete URL: "+url+" | NAME: "+name+" |");
+    console.log("Delete URL: "+url+" | NAME: "+name+" |");
     chrome.cookies.remove({
         'url':url,
         'name':name,
@@ -25,7 +25,7 @@ function resetCookie(cookie){
 
 	// delete the original cookie
 	deleteCookie(newCookie.url, newCookie.name, newCookie.storeId);
-	chrome.cookies.set(newCookie, function(e) {alert('created');});
+	chrome.cookies.set(newCookie, function(e) {console.log('created');});
 };
 
 
@@ -43,9 +43,9 @@ chrome.cookies.onChanged.addListener(function(changeInfo){
 
 // Check whether new version is installed
 chrome.runtime.onInstalled.addListener(function(details){
-    if(details.reason == "install"){
-        chrome.tabs.create({url: "options.html"});
-    }
+  if(details.reason == "install"){
+		chrome.tabs.create({url: "options.html"});
+  }
 	if(!localStorage.mybucknellcount)
 	{
 		localStorage.mybucknellcount = 0;

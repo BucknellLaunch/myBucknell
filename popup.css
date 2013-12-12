@@ -35,3 +35,16 @@ body {
 	border:none;
     box-shadow:none;
 }
+
+#log-out {
+    margin-top: 2px;
+    margin-right: 2px;
+    position: absolute;
+	height: 18px;
+	width: 18px;
+    top: 0;
+    right: 20;
+	background: none;
+	border:none;
+    box-shadow:none;
+}
