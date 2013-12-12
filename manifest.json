@@ -3,13 +3,9 @@
   "description": "myBucknell All In One",
   "version": "0.2.2",
   "permissions": [
-    "activeTab"	
-  ],
-  "content_scripts": [
-    {
-      "matches": ["https://cas.bucknell.edu/cas/*"],
-      "js": ["js/jquery-2.0.3.min.js"]
-    }	
+    "activeTab",
+    "cookies",
+    "*://*.bucknell.edu/*"
   ],
   "icons": { "128": "Bucknell_128x128.png" },
   "background": {

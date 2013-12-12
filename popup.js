@@ -1,28 +1,8 @@
 $(function(){	
 
-	/* Not able to post request. There is one field that keeps changing every time, and we have not way to know that the value of that field should be. Therefore, we just need to ask the user to log in if there is no cookies, and log in automacally if there are cookies.
-	function fakePost(url) {   
-	    var form = document.createElement("form");
-	    form.setAttribute("method", "post");
-	    form.setAttribute("action", url);
-	    var params = {username:'ll024', password: "", lt: 'e10s1', _eventId: "submit"};
-	    for(var key in params) {
-		var field = document.createElement("input");
-		field.setAttribute("id", key);
-		field.setAttribute("name", key);
-		field.setAttribute("value", params[key]);
-		form.appendChild(field);
-	    }
-	    document.body.appendChild(form);
-	    form.submit();
-	}
-	*/
-	
-	fakePostCode = fakePost.toString().replace(/(\n|\t)/gm,'');
-
 	$("#myBucknell").click(function() {
-	    //chrome.tabs.create({url: "javascript: " + fakePostCode+"fakePost('https://cas.bucknell.edu/cas/login');"});
-		//localStorage["mybucknellcount"]++;
+	    chrome.tabs.create({url: "http://my.bucknell.edu"});
+		localStorage["mybucknellcount"]++;
 	});
 	$("#library").click(function() {
 	    chrome.tabs.create({url: "http://library.bucknell.edu/"});
@@ -61,7 +41,13 @@ $(function(){
 		event.preventDefault();
 	     }
 	});
+
+
+
+
 });
+
+
 
 
 
