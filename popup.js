@@ -79,21 +79,31 @@ $(function(){
 	};
 
 	function showBmailUnread(){
-		$.ajax({
-			url: "https://mail.google.com/mail/feed/atom",
-			dataType: "xml",
-			error: showError,
-			//if we need to pass user name and password for authentication, we can add username and password filed. But we are assuming that the user has the cookies already.
-			success: showUnread
-		});
+		try{
+			$.ajax({
+				url: "https://mail.google.com/mail/feed/atom",
+				dataType: "xml",
+				error: showError,
+				success: showUnread
+				//if we need to pass user name and password for authentication, we can add username and password fields. But we are assuming that the user has the cookies already.
+				//username: "",
+				//password: "",
+			});
+		}
+		catch (err){
+			console.log(err);
+		}
 	};
 
 	function showUnread(data, status, jqXHR){
-		console.log(data);
+		unread = $(data).find("fullcount").first().text();
+		if (unread > 0){
+			$("button span.badge").text(unread);
+		}
 	};
 
 	function showError(){
-		console.log('Ajax unsuccessful.');
+		console.log('Ajax unsuccessful. You might want to log in to Bmail first.');
 	};
 
 	function removeCookie(){
