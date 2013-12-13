@@ -111,7 +111,7 @@ $(function(){
 		unread = $(data).find("fullcount").first().text();
 		if (unread >= 0){
 			$("button span.badge").text(unread);
-			chrome.browserAction.setIcon({path: "Bucknell_16x16.png"});
+			chrome.browserAction.setIcon({path: "img/Bucknell_16x16.png"});
 			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
 			chrome.browserAction.setBadgeText({
 			text: unread != "0" ? unread : ""
@@ -121,7 +121,7 @@ $(function(){
 	function showError(){
 		// Set the icon into not login.
 		// You can also change to failed icon when cookie detection is failed.
-		chrome.browserAction.setIcon({path:"Bucknell_16x16_Failed.png"});
+		chrome.browserAction.setIcon({path:"img/Bucknell_16x16_Failed.png"});
 		chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
 		chrome.browserAction.setBadgeText({text:"?"});
 		console.log('Ajax unsuccessful. You might want to log in to Bmail first.');

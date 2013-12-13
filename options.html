@@ -25,9 +25,23 @@ myBucknell Account Setting
 				Advanced Settings
 				</a>
 			</h4>
-			<div class="well"><label>Bmail Checking Frequency:</label>
-				<input type="text" class="span2" value="5" id="rangeSlider" data-slider-min="1" data-slider-max="60" data-slider-step="1" data-slider-value="5">
-				<label id="minutes"> Minutes</label>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in">
+			<div class="panel-body">
+			<div class="panel panel-default"">
+			<div class="panel-heading"><label>BMail Checking</label></div>
+			<div class="panel-body">
+			<label>Checking Frequency:</label>
+			<div class="alert alert-warning alert-dismissable" style="" id="warning">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			Disable (set to 0) and enable will effect after restart the browser.
+			</div>
+				<input type="text" class="span2" value="5" id="rangeSlider" data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="5" width="150">
+				<div><label id="minutes"> Minutes</label></div>
+			</div>
+			</div>
+			</div>
+			</div>
 			</div>
 		<div class="panel panel-default">
 			<div class="panel-heading">

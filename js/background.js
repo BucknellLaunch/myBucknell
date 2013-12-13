@@ -73,6 +73,10 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.scheduletime = 5;
 	};
+	if(!localStorage.bmailcheck)
+	{
+		localStorage.bmailcheck = true;
+	};
 	
 	if(localStorage.username)	// Legacy clear up
 	{
@@ -87,7 +91,9 @@ chrome.runtime.onInstalled.addListener(function(details){
 // Schedule BMail checking
 function SetUpBmailCheck(){
 	showBmailUnread();
-	chrome.alarms.create("Check BMail",{periodInMinutes:parseInt(localStorage.scheduletime)});
+	if(localStorage.bmailcheck)
+	{
+	chrome.alarms.create("Check BMail",{periodInMinutes:parseInt(localStorage.scheduletime)})};
   
 	chrome.alarms.onAlarm.addListener(function(alarm){
 	if(alarm.name == "Check BMail")
@@ -95,6 +101,7 @@ function SetUpBmailCheck(){
 		showBmailUnread();
 		console.log("Alarm works");
 	}
+	
   
  });
 }
@@ -122,7 +129,7 @@ function showBmailUnread(){
 		unread = $(data).find("fullcount").first().text();
 		if (unread >= 0){
 			//$("button span.badge").text(unread); // add one space No need here
-			chrome.browserAction.setIcon({path: "Bucknell_16x16.png"});
+			chrome.browserAction.setIcon({path: "img/Bucknell_16x16.png"});
 			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
 			chrome.browserAction.setBadgeText({
 			text: unread != "0" ? unread : ""
@@ -133,7 +140,7 @@ function showBmailUnread(){
 	function showError(){
 		// Set the icon into not login.
 		// You can also change to failed icon when cookie detection is failed.
-		chrome.browserAction.setIcon({path:"Bucknell_16x16_Failed.png"});
+		chrome.browserAction.setIcon({path:"img/Bucknell_16x16_Failed.png"});
 		chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
 		chrome.browserAction.setBadgeText({text:"?"});
 		console.log('Ajax unsuccessful. You might want to log in to Bmail first.');
