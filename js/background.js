@@ -86,7 +86,6 @@ function SetUpAlerm(){
  }
   
  });
- //chrome.alarms.clear("My First Alarm");
 }
 
 window.onload=SetUpAlerm;

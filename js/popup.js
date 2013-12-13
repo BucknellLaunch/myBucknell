@@ -5,7 +5,6 @@ $(function(){
 			chrome.tabs.create({url: "options.html"});
 		});
 
-
 		// check if the cookie exists
 		chrome.cookies.getAll({name: "CASTGC"}, function(cookies){
 			// if the cookie does not exist, promt the user to log in first.		
@@ -22,13 +21,22 @@ $(function(){
 
 
 	function hideButtons(){
-		$("div.container").addClass("hide");
-		$("div.alert").removeClass("hide");
+		//$("div.container").addClass("hide");
+		//$("div.alert").removeClass("hide");
+		//$('body').height(100).width(200);
+		
+		document.getElementById("warning").style.display = "";
+		document.getElementById("bmail").disabled = true; 
+		document.getElementById("myBucknell").disabled = true; 
+		document.getElementById("library").disabled = true; 
+		document.getElementById("moodle").disabled = true; 
+		document.getElementById("innetwork").disabled = true; 
+		showError();
 	};
 
 	function showButtons(){
 		$("div#sign-in").addClass("hide");
-
+		
 		$("#bmail").click(function() {
 			chrome.tabs.create({url: "http://mail.bucknell.edu"});
 			localStorage["bmailcount"]++;

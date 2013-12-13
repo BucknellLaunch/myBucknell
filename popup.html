@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -23,11 +24,16 @@ myBucknell Auto Login Helper
 <button type="button" class="btn btn-default btn-xs" id="log-out">
 <span class="glyphicon glyphicon-log-out"></span></button>
 
+<!--
 <div class = "hide alert alert-warning alert-dismissable">
 	<strong>Please Log in First!</strong>
-</div>
+</div>-->
 <div class="container">
   <form class="form-pop" role="form" defaultbutton="search" defaultfocus="search">
+  		<div class="alert alert-warning alert-dismissable" style="display: none;" id="warning">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Warning! Please Login First!</strong>
+		</div>
 		<button class="btn btn-lg btn-primary btn-block" id="bmail">Bmail <span class = "badge"></span></button>
 		<button class="btn btn-lg btn-primary btn-block" id="myBucknell">myBucknell</button>
 		<button class="btn btn-lg btn-primary btn-block" id="library">Library</button>
