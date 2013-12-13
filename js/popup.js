@@ -31,7 +31,6 @@ $(function(){
 
 		$("#bmail").click(function() {
 			chrome.tabs.create({url: "http://mail.bucknell.edu"});
-			showBmailUnread();
 			localStorage["bmailcount"]++;
 		});
 

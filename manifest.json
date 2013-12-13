@@ -5,12 +5,13 @@
   "permissions": [
     "activeTab",
     "cookies",
+	"alarms" ,
     "*://*.bucknell.edu/*",
 		"https://mail.google.com/*"
   ],
   "icons": { "128": "Bucknell_128x128.png" },
   "background": {
-    "scripts": ["js/background.js"],
+    "scripts": ["lib/jquery-2.0.3.min.js", "js/background.js"],
     "persistent": false
   },
   "browser_action": {
@@ -18,6 +19,7 @@
 	"default_icon": "Bucknell_16x16.png",
 	"default_popup": "popup.html"
   },
+  
   "options_page": "options.html",
   "manifest_version": 2
 }

@@ -68,11 +68,66 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.innetworkcount = 0;
 	};
-	if(!localStorage.logincount)
+	if(!localStorage.scheduletime)
 	{
-		localStorage.logincount = 0;
+		localStorage.scheduletime = 5;
 	};
 });
+
+// Schedule BMail checking
+function SetUpAlerm(){
+ chrome.alarms.create("Check BMail",{periodInMinutes:parseInt(localStorage.scheduletime)});
+ });
+ 
+ chrome.alarms.onAlarm.addListener(function(alarm){
+ if(alarm.name == "Check BMail")
+ {
+	showBmailUnread();
+ }
+  
+ });
+ //chrome.alarms.clear("My First Alarm");
+}
+
+window.onload=SetUpAlerm;
+
+// BMail checking function
+function showBmailUnread(){
+		try{
+			$.ajax({
+			// Note: this is just a dirty test url.
+			// The best practice is to read cookie and find out the correct account number
+				url: "https://mail.google.com/mail/u/1/feed/atom",
+				dataType: "xml",
+				error: showError,
+				success: showUnread
+			});
+		}
+		catch (err){
+			console.log(err.stack);
+		}
+	};
+
+	function showUnread(data, status, jqXHR){
+		unread = $(data).find("fullcount").first().text();
+		if (unread > 0){
+			$("button span.badge").text(unread); // add one space
+			chrome.browserAction.setIcon({path: "Bucknell_16x16.png"});
+			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
+			chrome.browserAction.setBadgeText({
+			text: unread != "0" ? unread : ""
+		})};
+	};
+
+	function showError(){
+		// Set the icon into not login.
+		// You can also change to failed icon when cookie detection is failed.
+		chrome.browserAction.setIcon({path:"Bucknell_16x16_Failed.png"});
+		chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
+		chrome.browserAction.setBadgeText({text:"?"});
+		console.log('Ajax unsuccessful. You might want to log in to Bmail first.');
+	};
+
 
 /* This code is not needed any more.
 chrome.extension.onMessage.addListener(function(request, sender, sendMessage) {
