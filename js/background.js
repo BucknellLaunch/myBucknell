@@ -48,6 +48,7 @@ chrome.runtime.onInstalled.addListener(function(details){
   if(details.reason == "install"){
 		chrome.tabs.create({url: "options.html"});
   }
+	checkCookie();
 	if(!localStorage.bmailcount)
 	{
 		localStorage.bmailcount = 0;
@@ -72,23 +73,33 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.scheduletime = 5;
 	};
+	
+	if(localStorage.username)	// Legacy clear up
+	{
+		localStorage.removeItem(username);
+	}
+	if(localStorage.password)	// Legacy clear up
+	{
+		localStorage.removeItem(password);
+	}
 });
 
 // Schedule BMail checking
-function SetUpAlerm(){
- chrome.alarms.create("Check BMail",{periodInMinutes:parseInt(localStorage.scheduletime)});
- });
- 
- chrome.alarms.onAlarm.addListener(function(alarm){
- if(alarm.name == "Check BMail")
- {
+function SetUpBmailCheck(){
 	showBmailUnread();
- }
+	chrome.alarms.create("Check BMail",{periodInMinutes:parseInt(localStorage.scheduletime)});
+  
+	chrome.alarms.onAlarm.addListener(function(alarm){
+	if(alarm.name == "Check BMail")
+	{
+		showBmailUnread();
+		console.log("Alarm works");
+	}
   
  });
 }
 
-window.onload=SetUpAlerm;
+window.onload=SetUpBmailCheck;
 
 // BMail checking function
 function showBmailUnread(){
@@ -109,13 +120,14 @@ function showBmailUnread(){
 
 	function showUnread(data, status, jqXHR){
 		unread = $(data).find("fullcount").first().text();
-		if (unread > 0){
-			$("button span.badge").text(unread); // add one space
+		if (unread >= 0){
+			//$("button span.badge").text(unread); // add one space No need here
 			chrome.browserAction.setIcon({path: "Bucknell_16x16.png"});
 			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
 			chrome.browserAction.setBadgeText({
 			text: unread != "0" ? unread : ""
-		})};
+			})};
+		
 	};
 
 	function showError(){
@@ -127,6 +139,16 @@ function showBmailUnread(){
 		console.log('Ajax unsuccessful. You might want to log in to Bmail first.');
 	};
 
+	function checkCookie(){
+	// check if the cookie exists
+		chrome.cookies.getAll({name: "CASTGC"}, function(cookies){
+			// if the cookie does not exist, promt the user to log in first.		
+			if (cookies.length == 0){
+				showError();
+				chrome.tabs.create({url: "https://cas.bucknell.edu/cas/login"});
+			}
+		});
+	}
 
 /* This code is not needed any more.
 chrome.extension.onMessage.addListener(function(request, sender, sendMessage) {

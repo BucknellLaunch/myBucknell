@@ -18,7 +18,8 @@ $(function(){
 			}
 		});
 	}
-
+	
+	
 
 	function hideButtons(){
 		//$("div.container").addClass("hide");
@@ -36,7 +37,8 @@ $(function(){
 
 	function showButtons(){
 		$("div#sign-in").addClass("hide");
-		
+		$('#settingtp').tooltip();
+		$('#logouttp').tooltip();
 		$("#bmail").click(function() {
 			chrome.tabs.create({url: "http://mail.bucknell.edu"});
 			localStorage["bmailcount"]++;
@@ -108,12 +110,12 @@ $(function(){
 	function showUnread(data, status, jqXHR){
 		unread = $(data).find("fullcount").first().text();
 		if (unread >= 0){
-			$("button span.badge").text(unread); // add one space
+			$("button span.badge").text(unread);
 			chrome.browserAction.setIcon({path: "Bucknell_16x16.png"});
 			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
 			chrome.browserAction.setBadgeText({
 			text: unread != "0" ? unread : ""
-		})};
+			})};
 	};
 
 	function showError(){
