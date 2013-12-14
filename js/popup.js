@@ -1,13 +1,12 @@
 $(function(){	
 	function main(){
-
 		$("#setting").click(function() {
 			chrome.tabs.create({url: "options.html"});
 		});
 
 		// check if the cookie exists
 		chrome.cookies.getAll({name: "CASTGC"}, function(cookies){
-			// if the cookie does not exist, promt the user to log in first.		
+			// if the cookie does not exist, prompt the user to log in first.		
 			if (cookies.length == 0){
 				hideButtons();
 				chrome.tabs.create({url: "https://cas.bucknell.edu/cas/login"});
@@ -18,25 +17,6 @@ $(function(){
 			}
 		});
 	}
-	
-	// Failed 
-	function GetBmailURL()
-	{
-		var url = "";
-		var reg = /bucknell.edu/;
-		chrome.cookies.getAll({name: "gmailchat"}, function(cookies){
-		cookies.forEach(function(entry)
-		{
-			if(entry.value.match(reg))
-			{
-			return "https://mail.google.com" + entry.path + "/feed/atom";
-			}
-		})
-		
-		})
-		//alert(url);
-		return url;
-	};
 
 	function hideButtons(){
 		//$("div.container").addClass("hide");
@@ -78,10 +58,6 @@ $(function(){
 			chrome.tabs.create({url: "https://getinvolved.bucknell.edu/"});
 			localStorage["innetworkcount"]++;
 		});
-		$("#test").click(function() {
-			//GetBmailURL();
-			showBmailUnread();
-		});
 
 		$("#log-out").click(function() {
 			removeCookie();
@@ -108,49 +84,6 @@ $(function(){
 				event.preventDefault();
 			}
 		});
-	};
-
-	function showBmailUnread(){
-		try{
-			var bmailurl = GetBmailURL();
-			console.log(bmailurl);
-			
-			$.ajax({
-			// Note: this is just a dirty test url.
-			// The best practice is to read cookie and find out the correct account number
-				//url: "https://mail.google.com/mail/u/1/feed/atom",
-				url: bmailurl,
-				dataType: "xml",
-				error: showError,
-				success: showUnread
-				//if we need to pass user name and password for authentication, we can add username and password fields. But we are assuming that the user has the cookies already.
-				//username: "",
-				//password: "",
-			});
-		}
-		catch (err){
-			console.log(err);
-		}
-	};
-
-	function showUnread(data, status, jqXHR){
-		unread = $(data).find("fullcount").first().text();
-		if (unread >= 0){
-			$("button span.badge").text(unread);
-			chrome.browserAction.setIcon({path: "img/Bucknell_16x16.png"});
-			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
-			chrome.browserAction.setBadgeText({
-			text: unread != "0" ? unread : ""
-			})};
-	};
-
-	function showError(){
-		// Set the icon into not login.
-		// You can also change to failed icon when cookie detection is failed.
-		chrome.browserAction.setIcon({path:"img/Bucknell_16x16_Failed.png"});
-		chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
-		chrome.browserAction.setBadgeText({text:"?"});
-		console.log('Ajax unsuccessful. You might want to log in to Bmail first.');
 	};
 
 	function removeCookie(){
