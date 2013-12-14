@@ -1,4 +1,5 @@
 // Copyright (c) 2013 Kuree. Modified by Li Li
+var url = "https://mail.google.com/mail/u/1/feed/atom";
 
 function deleteCookie(url,name,store){
     console.log("Delete URL: "+url+" | NAME: "+name+" |");
@@ -176,16 +177,19 @@ function showBmailUnread(){
 		return url;
 	};
 	
-/* This code is not needed any more.
+
 chrome.extension.onMessage.addListener(function(request, sender, sendMessage) {
-    if (request.method == "getLocalStorage"){
-	sendMessage({data: localStorage[request.key]});
+    if (request.method == "setUnread"){
+	var unread = request.value;
+	chrome.browserAction.setIcon({path: "img/Bucknell_16x16.png"});
+			chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
+			chrome.browserAction.setBadgeText({
+			text: unread != "0" ? unread : ""
+			})
     }
-    else if(request.method == "setLocalStorage"){
-	localStorage[request.key] = request.value;
-    }
-    else
-    sendMessage({}); // snub them.
+    else{
+    sendMessage({});} // snub them.
 });
-*/
+
+
 
