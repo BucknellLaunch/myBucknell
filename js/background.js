@@ -110,6 +110,7 @@ window.onload=SetUpBmailCheck;
 
 // BMail checking function
 function showBmailUnread(){
+	console.log(GetBmailURL());
 		try{
 			$.ajax({
 			// Note: this is just a dirty test url.
@@ -157,6 +158,24 @@ function showBmailUnread(){
 		});
 	}
 
+	
+	function GetBmailURL()
+	{
+		var url = "";
+		var reg = /bucknell.edu/;
+		chrome.cookies.getAll({name: "gmailchat"}, function(cookies){
+		cookies.forEach(function(entry)
+		{
+			if(entry.value.match(reg))
+			{
+			url = "https://mail.google.com" + entry.path + "/feed/atom";
+			}
+		})
+		
+		})
+		return url;
+	};
+	
 /* This code is not needed any more.
 chrome.extension.onMessage.addListener(function(request, sender, sendMessage) {
     if (request.method == "getLocalStorage"){

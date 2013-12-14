@@ -19,7 +19,24 @@ $(function(){
 		});
 	}
 	
-	
+	// Failed 
+	function GetBmailURL()
+	{
+		var url = "";
+		var reg = /bucknell.edu/;
+		chrome.cookies.getAll({name: "gmailchat"}, function(cookies){
+		cookies.forEach(function(entry)
+		{
+			if(entry.value.match(reg))
+			{
+			return "https://mail.google.com" + entry.path + "/feed/atom";
+			}
+		})
+		
+		})
+		//alert(url);
+		return url;
+	};
 
 	function hideButtons(){
 		//$("div.container").addClass("hide");
@@ -45,6 +62,7 @@ $(function(){
 		});
 
 		$("#myBucknell").click(function() {
+		
 			chrome.tabs.create({url: "http://my.bucknell.edu"});
 			localStorage["mybucknellcount"]++;
 		});
@@ -59,6 +77,10 @@ $(function(){
 		$("#innetwork").click(function() {
 			chrome.tabs.create({url: "https://getinvolved.bucknell.edu/"});
 			localStorage["innetworkcount"]++;
+		});
+		$("#test").click(function() {
+			//GetBmailURL();
+			showBmailUnread();
 		});
 
 		$("#log-out").click(function() {
@@ -90,10 +112,14 @@ $(function(){
 
 	function showBmailUnread(){
 		try{
+			var bmailurl = GetBmailURL();
+			console.log(bmailurl);
+			
 			$.ajax({
 			// Note: this is just a dirty test url.
 			// The best practice is to read cookie and find out the correct account number
-				url: "https://mail.google.com/mail/u/1/feed/atom",
+				//url: "https://mail.google.com/mail/u/1/feed/atom",
+				url: bmailurl,
 				dataType: "xml",
 				error: showError,
 				success: showUnread

@@ -7,7 +7,7 @@
     "cookies",
 	"alarms" ,
     "*://*.bucknell.edu/*",
-		"https://mail.google.com/*"
+		"*://mail.google.com/*"
   ],
   "icons": { "128": "img/Bucknell_128x128.png" },
   "background": {
