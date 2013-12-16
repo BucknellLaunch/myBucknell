@@ -5,9 +5,8 @@
   "permissions": [
     "activeTab",
     "cookies",
-	"alarms" ,
+	  "alarms" ,
     "*://*.bucknell.edu/*",
-		"*://mail.google.com/*"
   ],
   "icons": { "128": "img/Bucknell_128x128.png" },
   "background": {
