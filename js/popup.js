@@ -19,16 +19,12 @@ $(function(){
 	}
 
 	function hideButtons(){
-		//$("div.container").addClass("hide");
-		//$("div.alert").removeClass("hide");
-		//$('body').height(100).width(200);
-		
-		document.getElementById("warning").style.display = "";
-		document.getElementById("bmail").disabled = true; 
-		document.getElementById("myBucknell").disabled = true; 
-		document.getElementById("library").disabled = true; 
-		document.getElementById("moodle").disabled = true; 
-		document.getElementById("innetwork").disabled = true; 
+		$("#warning").show();
+		$("#bmail").prop('disabled', true); 
+		$("#myBucknell").prop('disabled', true);
+		$("#library").prop('disabled', true);
+		$("#moodle").prop('disabled', true);
+		$("#innetwork").prop('disabled', true);
 		showError();
 	};
 
