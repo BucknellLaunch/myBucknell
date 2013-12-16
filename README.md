@@ -19,4 +19,4 @@ Change log:
  * 12/6: Stable Version Reslease
  * 12/8: Add username check (deprecated); statistics function; search panel; option button in popup.
  * 12/12: Security change, move from localstorage to cookie session. Add Bmail checker.
- * 12/16: Change Bmail updating method. Do not need permission to google.com anymore.
+ * 12/16: Change Bmail updating method. Do not need permission to google.com anymore. Ready to Publish.

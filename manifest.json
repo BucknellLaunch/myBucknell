@@ -1,12 +1,12 @@
 {
   "name": "myBucknell Helper",
   "description": "myBucknell All In One",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "permissions": [
     "activeTab",
     "cookies",
 	  "alarms" ,
-    "*://*.bucknell.edu/*",
+    "*://*.bucknell.edu/*"
   ],
   "icons": { "128": "img/Bucknell_128x128.png" },
   "background": {
