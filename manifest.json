@@ -1,7 +1,7 @@
 {
   "name": "myBucknell Helper",
   "description": "myBucknell All In One",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "permissions": [
     "activeTab",
     "cookies",
