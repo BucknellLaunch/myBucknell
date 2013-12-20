@@ -48,35 +48,40 @@ chrome.runtime.onInstalled.addListener(function(details){
   if(details.reason == "install"){
 		chrome.tabs.create({url: "options.html"});
   }
-	if(!localStorage.bmailcount)
+	if(localStorage.getItem("bmailcount") === null)
 	{
 		localStorage.bmailcount = 0;
 	};
-	if(!localStorage.mybucknellcount)
+	if(localStorage.getItem("mybucknellcount") === null)
 	{
 		localStorage.mybucknellcount = 0;
 	};
-	if(!localStorage.librarycount)
+	if(localStorage.getItem("librarycount") === null)
 	{
 		localStorage.librarycount = 0;
 	};
-	if(!localStorage.moodlecount)
+	if(localStorage.getItem("moodlecount") === null)
 	{
 		localStorage.moodlecount = 0;
 	};
-	if(!localStorage.innetworkcount)
+	if(localStorage.getItem("innetworkcount") === null)
 	{
 		localStorage.innetworkcount = 0;
 	};
-	if(!localStorage.scheduletime)
+	if(localStorage.getItem("bannerwebcount") === null)
+	{
+		localStorage.bannerwebcount = 0;
+	};
+	
+	if(localStorage.getItem("scheduletime") === null)
 	{
 		localStorage.scheduletime = 5;
 	};
-	if(!localStorage.bmailcheck)
+	if(localStorage.getItem("bmailcheck") === null)
 	{
 		localStorage.bmailcheck = true;
 	};
-	
+
 	if(localStorage.username)	// Legacy clear up
 	{
 		localStorage.removeItem(username);

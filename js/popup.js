@@ -25,6 +25,7 @@ $(function(){
 		$("#library").prop('disabled', true);
 		$("#moodle").prop('disabled', true);
 		$("#innetwork").prop('disabled', true);
+		$("#bannerweb").prop('disabled', true);
 		showError();
 	};
 
@@ -53,6 +54,11 @@ $(function(){
 		$("#innetwork").click(function() {
 			chrome.tabs.create({url: "https://getinvolved.bucknell.edu/"});
 			localStorage["innetworkcount"]++;
+		});
+		
+		$("#bannerweb").click(function(){
+			chrome.tabs.create({url: "https://www.banner.bucknell.edu/BANPRD/twbkwbis.P_GenMenu?name=bmenu.P_GenMnu"});
+			localStorage["bannerwebcount"]++;
 		});
 
 		$("#log-out").click(function() {

@@ -5,7 +5,7 @@ document.getElementById("mybucknellcount").innerHTML = localStorage["mybucknellc
 document.getElementById("librarycount").innerHTML = localStorage["librarycount"];
 document.getElementById("moodlecount").innerHTML = localStorage["moodlecount"];
 document.getElementById("innetworkcount").innerHTML = localStorage["innetworkcount"];
-//document.getElementById("enablebmail").checked = localStorage.bmailcheck
+document.getElementById("bannerwebcount").innerHTML= localStorage["bannerwebcount"];
 
 
 
