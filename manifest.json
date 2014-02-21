@@ -17,7 +17,7 @@
   },
   "browser_action": {
     "default_title": "Go Bison!",
-	"default_icon": "img/Bucknell_16x16.png",
+	"default_icon": "img/Bucknell_19x19.png",
 	"default_popup": "popup.html"
   },
   "options_page": "options.html",
