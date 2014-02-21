@@ -1,6 +1,6 @@
+window.onload=function(){
 var sliderVal = localStorage.scheduletime;
-window.onload=function()
-{
+
 document.getElementById("mybucknellcount").innerHTML = localStorage["mybucknellcount"];
 document.getElementById("librarycount").innerHTML = localStorage["librarycount"];
 document.getElementById("moodlecount").innerHTML = localStorage["moodlecount"];
@@ -8,7 +8,24 @@ document.getElementById("innetworkcount").innerHTML = localStorage["innetworkcou
 document.getElementById("bannerwebcount").innerHTML= localStorage["bannerwebcount"];
 
 
+if (localStorage["safeConnect"] == "true"){
+	$("#safeconnect").attr("checked", true);
+}
+else{
+	$("#safeconnect").attr("checked", false);
+}
 
+
+$("#safeconnect").click(function(){
+	if(this.checked){
+		localStorage["safeConnect"] = true;
+	}
+	else{
+		localStorage["safeConnect"] = false;
+	}
+});
+
+	
 $('#rangeSlider').slider().on('slide', function (ev) {
 	if(ev.value >0){
             sliderVal = ev.value;
@@ -22,11 +39,14 @@ $('#rangeSlider').slider().on('slide', function (ev) {
 				document.getElementById("minutes").innerHTML = "Background checking disabled";
 			}
         });
-		
+
         if (sliderVal) {
             $('#rangeSlider').slider('setValue', sliderVal);
 			document.getElementById("minutes").innerHTML = sliderVal + " Minutes";
         }
 
 };
+
+
+
 

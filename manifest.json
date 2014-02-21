@@ -5,13 +5,15 @@
   "permissions": [
     "activeTab",
     "cookies",
-	  "alarms" ,
-    "*://*.bucknell.edu/*"
+    "alarms" ,
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
   ],
   "icons": { "128": "img/Bucknell_128x128.png" },
   "background": {
     "scripts": ["lib/jquery-2.0.3.min.js", "js/Bmail.js","js/background.js"],
-    "persistent": false
+    "persistent": true
   },
   "browser_action": {
     "default_title": "Go Bison!",

@@ -1,109 +1,132 @@
 <html>
 <head>
-<title>
-myBucknell Account Setting
-</title>
+<title>myBucknell Account Setting</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/slider.css" rel="stylesheet">
 <link href="css/option.css" rel="stylesheet">
 <!-- Scripts -->
-                <script src="lib/jquery-2.0.3.min.js"></script>
-                <script src="lib/bootstrap.min.js"></script>
-		<script src="lib/bootstrap-slider.js"></script>
-		<script src="js/options.js"></script>
+<script src="lib/jquery-2.0.3.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/bootstrap-slider.js"></script>
+<script src="js/options.js"></script>
 
 </head>
-<body screen_capture_injected="true" style="overflow:hidden" scrolling="no">
-<div class="container">
-	<form class="form-advanced" role="form">
-      <div class="panel-group" id="accordion">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-			<h4 class="panel-title">
-				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-				Advanced Settings
-				</a>
-			</h4>
-			</div>
-			<div id="collapseOne" class="panel-collapse collapse in">
-			<div class="panel-body">
-			<div class="panel panel-default"">
-			<div class="panel-heading"><label>BMail Checking</label></div>
-			<div class="panel-body">
-			<label>Checking Frequency:</label>
-			<div class="alert alert-warning alert-dismissable" style="" id="warning">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			Disable (set to 0) and enable will effect after restart the browser.
-			</div>
-				<input type="text" class="span2" value="5" id="rangeSlider" data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="5" width="150">
-				<div><label id="minutes"> Minutes</label></div>
-			</div>
-			</div>
-			</div>
-			</div>
-			</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-			<h4 class="panel-title">
-				<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-				Statistics
-				</a>
-			</h4>
-			</div>
-			<div id="collapseTwo" class="panel-collapse collapse">
-			<div class="panel-body">
-			<table class="table">
-			<tr>
-			<th>Name</th>
-			<th>Count</th>
-			</tr>
-			<tr><td>myBucknell Link Hit</td>
-			<td><label id="mybucknellcount">0</label></td></tr>
-			<tr><td>Library Link Hit</td>
-			<td><label id="librarycount">0</label></td></tr>
-			<tr><td>Moodle Link Hit</td>
-			<td><label id="moodlecount">0</label></td></tr>
-			<tr><td>InNetwork Link Hit</td>
-			<td><label id="innetworkcount">0</label></td></tr>
-			<tr><td>Banner Web Link Hit</td>
-			<td><label id="bannerwebcount">0</label></td></tr>
+<body screen_capture_injected="true" style="overflow: hidden"
+	scrolling="no">
+	<div class="container">
+		<form class="form-advanced" role="form">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#collapseOne"> Advanced Settings </a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="panel panel-default"">
+								<div class="panel-heading">
+									<label>BMail Checking</label>
+								</div>
+								<div class="panel-body">
+									<label>Checking Frequency:</label>
+									<div class="alert alert-warning alert-dismissable" style=""
+										id="warning">
+										<button type="button" class="close" data-dismiss="alert"
+											aria-hidden="true">&times;</button>
+										Disable (set to 0) and enable will effect after restart the
+										browser.
+									</div>
+									<input type="text" class="span2" value="5" id="rangeSlider"
+										data-slider-min="0" data-slider-max="60" data-slider-step="1"
+										data-slider-value="5" width="150">
+									<div>
+										<label id="minutes"> Minutes</label>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default"">
+								<div class="panel-heading">
+									<label>Safe Connect</label>
+								</div>
+								<div class="panel-body">
+									<label><input type="checkbox" name="checkbox" id = "safeconnect"> I am safe, thank you!</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#collapseTwo"> Statistics </a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							<table class="table">
+								<tr>
+									<th>Name</th>
+									<th>Count</th>
+								</tr>
+								<tr>
+									<td>myBucknell Link Hit</td>
+									<td><label id="mybucknellcount">0</label></td>
+								</tr>
+								<tr>
+									<td>Library Link Hit</td>
+									<td><label id="librarycount">0</label></td>
+								</tr>
+								<tr>
+									<td>Moodle Link Hit</td>
+									<td><label id="moodlecount">0</label></td>
+								</tr>
+								<tr>
+									<td>InNetwork Link Hit</td>
+									<td><label id="innetworkcount">0</label></td>
+								</tr>
+								<tr>
+									<td>Banner Web Link Hit</td>
+									<td><label id="bannerwebcount">0</label></td>
+								</tr>
 
-			</table>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-			<div class="panel-heading">
-			<h4 class="panel-title">
-				<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-				About
-				</a>
-			</h4>
-			</div>
-			<div id="collapseThree" class="panel-collapse collapse">
-			<div class="panel-body">
-			<div class="panel panel-default">
-			<div class="panel-heading">
-			<h3 class="panel-title">Authors</h3>
-			</div>
-			<div class="panel-body">
-			<div>Keyi Zhang (CSE 17')</div>
-			<div>Li Li (CSE 16')</div>
-      </div>
-    </div>
-	<div class="panel panel-default">
-			<div class="panel-heading">
-			<h3 class="panel-title">Source Code</h3>
-			</div>
-			<div class="panel-body">
-			<a href="https://github.com/Kuree/myBucknell">GitHub</a>
-		</div>
-		</div>
-  </div>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#collapseThree"> About </a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Authors</h3>
+								</div>
+								<div class="panel-body">
+									<div>Keyi Zhang (CSE 17')</div>
+									<div>Li Li (CSE 16')</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Source Code</h3>
+								</div>
+								<div class="panel-body">
+									<a href="https://github.com/Kuree/myBucknell">GitHub</a>
+								</div>
+							</div>
+						</div>
+					</div>
+		</form>
 	</div>
-	</form>
-</div>
 </body>
 
 </html>

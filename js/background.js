@@ -81,6 +81,10 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.bmailcheck = true;
 	};
+	if(localStorage.getItem("safeConnect") === null)
+	{
+		localStorage.safeConnect = true;
+	};
 
 	if(localStorage.username)	// Legacy clear up
 	{
@@ -110,4 +114,29 @@ function setupBmailCheck(){
  });
 }
 
-setupBmailCheck();	
+function bypassSafeConnect(){
+	var requestFilter = {
+		urls: [
+			"<all_urls>"
+		]
+	};
+	chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
+		if (localStorage["safeConnect"] != "true"){
+			return;
+		}
+		var headers = details.requestHeaders;
+		userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36";
+		for(var i = 0, l = headers.length; i < l; ++i) {
+			if( headers[i].name == 'User-Agent' ) {
+				break;
+			}
+		}
+		if(i < headers.length) {
+			headers[i].value = userAgent;
+		}
+		return {requestHeaders: headers};
+	}, requestFilter, ['requestHeaders','blocking']);
+
+}
+bypassSafeConnect();
+setupBmailCheck();
