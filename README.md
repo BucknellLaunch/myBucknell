@@ -5,6 +5,7 @@ Feature list:
  * Neither username nor password is saved.
  * Periodically check your BMail and send you feedback.
  * Useful Links in popup
+ * Able to bypass SafeConnect. Note: this feature is developed only for testing purposes. The authors are not responsible for any loss of users by not installing SafeConnect.
 
 
 
@@ -21,3 +22,4 @@ Change log:
  * 12/12: Security change, move from localstorage to cookie session. Add Bmail checker.
  * 12/16: Change Bmail updating method. Do not need permission to google.com anymore. Ready to Publish.
  * 12/20: Add banner web link. Solve a bug for local storage initialization.
+ * 2/21: Add SafeConnect bypass feature.
