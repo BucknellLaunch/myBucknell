@@ -72,7 +72,12 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.bannerwebcount = 0;
 	};
-	
+  if(localStorage.getItem("laundryviewcount") === null)
+	{
+		localStorage.laundryviewcount = 0;
+	};
+
+
 	if(localStorage.getItem("scheduletime") === null)
 	{
 		localStorage.scheduletime = 5;
@@ -85,6 +90,7 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.safeConnect = true;
 	};
+
 
 	if(localStorage.username)	// Legacy clear up
 	{

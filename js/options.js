@@ -6,7 +6,7 @@ document.getElementById("librarycount").innerHTML = localStorage["librarycount"]
 document.getElementById("moodlecount").innerHTML = localStorage["moodlecount"];
 document.getElementById("innetworkcount").innerHTML = localStorage["innetworkcount"];
 document.getElementById("bannerwebcount").innerHTML= localStorage["bannerwebcount"];
-
+document.getElementById("laundryviewcount").innerHTML= localStorage["laundryviewcount"];
 
 if (localStorage["safeConnect"] == "true"){
 	$("#safeconnect").attr("checked", true);

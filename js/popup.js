@@ -26,6 +26,7 @@ $(function(){
 		$("#moodle").prop('disabled', true);
 		$("#innetwork").prop('disabled', true);
 		$("#bannerweb").prop('disabled', true);
+		$("#laundryview").prop('disabled', true);
 		showError();
 	};
 
@@ -60,6 +61,11 @@ $(function(){
 			chrome.tabs.create({url: "https://www.banner.bucknell.edu/BANPRD/twbkwbis.P_GenMenu?name=bmenu.P_GenMnu"});
 			localStorage["bannerwebcount"]++;
 		});
+
+    $("#laundryview").click(function() {
+      chrome.tabs.create({url: "https://www.laundryview.com/lvs.php"});
+      localStorage["laundryviewcount"]++;
+    });
 
 		$("#log-out").click(function() {
 			removeCookie();
