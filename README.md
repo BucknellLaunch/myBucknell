@@ -23,3 +23,4 @@ Change log:
  * 12/16: Change Bmail updating method. Do not need permission to google.com anymore. Ready to Publish.
  * 12/20: Add banner web link. Solve a bug for local storage initialization.
  * 2/21: Add SafeConnect bypass feature.
+ * 2/9/2015: Add Laundry View.
