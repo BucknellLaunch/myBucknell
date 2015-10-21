@@ -72,9 +72,21 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.bannerwebcount = 0;
 	};
-  if(localStorage.getItem("laundryviewcount") === null)
+    if(localStorage.getItem("laundryviewcount") === null)
 	{
 		localStorage.laundryviewcount = 0;
+	};
+	if(localStorage.getItem("webprintcount") === null)
+	{
+		localStorage.laundryviewcount = 0;
+	};
+	if(localStorage.getItem("bridgecount") === null)
+	{
+		localStorage.bridgecount = 0;
+	};
+	if(localStorage.getItem("webprintcount") === null)
+	{
+		localStorage.webprintcount = 0;
 	};
 
 
@@ -90,6 +102,7 @@ chrome.runtime.onInstalled.addListener(function(details){
 	{
 		localStorage.safeConnect = true;
 	};
+
 
 
 	if(localStorage.username)	// Legacy clear up

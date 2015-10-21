@@ -5,8 +5,11 @@ document.getElementById("mybucknellcount").innerHTML = localStorage["mybucknellc
 document.getElementById("librarycount").innerHTML = localStorage["librarycount"];
 document.getElementById("moodlecount").innerHTML = localStorage["moodlecount"];
 document.getElementById("innetworkcount").innerHTML = localStorage["innetworkcount"];
-document.getElementById("bannerwebcount").innerHTML= localStorage["bannerwebcount"];
+document.getElementById("bridgecount").innerHTML= localStorage["bridgecount"];
+document.getElementById("webprintcount").innerHTML= localStorage["webprintcount"];
 document.getElementById("laundryviewcount").innerHTML= localStorage["laundryviewcount"];
+document.getElementById("bannerwebcount").innerHTML= localStorage["bannerwebcount"];
+
 
 if (localStorage["safeConnect"] == "true"){
 	$("#safeconnect").attr("checked", true);
