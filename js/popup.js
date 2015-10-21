@@ -25,6 +25,8 @@ $(function(){
 		$("#library").prop('disabled', true);
 		$("#moodle").prop('disabled', true);
 		$("#innetwork").prop('disabled', true);
+		$("#bridge").prop('disabled', true);
+		$("#webprint").prop('disabled', true);
 		$("#bannerweb").prop('disabled', true);
 		$("#laundryview").prop('disabled', true);
 		showError();
@@ -40,7 +42,6 @@ $(function(){
 		});
 
 		$("#myBucknell").click(function() {
-		
 			chrome.tabs.create({url: "http://my.bucknell.edu"});
 			localStorage["mybucknellcount"]++;
 		});
@@ -57,15 +58,25 @@ $(function(){
 			localStorage["innetworkcount"]++;
 		});
 		
-		$("#bannerweb").click(function(){
+		$("#bridge").click(function() {
+			chrome.tabs.create({url: "https://bucknell-csm.symplicity.com/sso/students/"});
+			localStorage["bridgecount"]++;
+		});
+
+		$("#webprint").click(function() {
+			chrome.tabs.create({url: "https://webprint.bucknell.edu/myprintcenter/"});
+			localStorage["webprintcount"]++;
+		});
+
+	    $("#bannerweb").click(function(){
 			chrome.tabs.create({url: "https://www.banner.bucknell.edu/BANPRD/twbkwbis.P_GenMenu?name=bmenu.P_GenMnu"});
 			localStorage["bannerwebcount"]++;
 		});
 
-    $("#laundryview").click(function() {
-      chrome.tabs.create({url: "https://www.laundryview.com/lvs.php"});
-      localStorage["laundryviewcount"]++;
-    });
+	    $("#laundryview").click(function() {
+	      chrome.tabs.create({url: "https://www.laundryview.com/lvs.php"});
+	      localStorage["laundryviewcount"]++;
+	    });
 
 		$("#log-out").click(function() {
 			removeCookie();
